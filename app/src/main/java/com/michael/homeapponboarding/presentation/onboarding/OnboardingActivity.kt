@@ -39,7 +39,7 @@ import kotlinx.coroutines.launch
 class OnboardingActivity : AppCompatActivity() {
 
     companion object {
-        private const val TAG = "Home-App OnboardingActivity"
+        private const val TAG = "OnboardingActivity"
     }
 
     private val viewModel: OnboardingViewModel by viewModels()
@@ -52,15 +52,6 @@ class OnboardingActivity : AppCompatActivity() {
 
         // Update context with package name BEFORE setting up observers
         viewModel.updateContextWithPackageName(packageName)
-
-        // Safety check
-        val onboardingCompleted = viewModel.currentState.isOnboardingCompleted
-        val isSetAsDefault = viewModel.currentState.isSetAsDefaultHome
-
-        if (onboardingCompleted && isSetAsDefault) {
-            finish()
-            return
-        }
 
         setupObservers()
         viewModel.initialize()
@@ -107,14 +98,6 @@ class OnboardingActivity : AppCompatActivity() {
         // Update context and process activity resume through MVI action
         viewModel.updateContextWithPackageName(packageName)
         viewModel.onActivityResumed()
-
-        // Add a delayed verification to catch false positives from launcher chooser
-        window.decorView.postDelayed({
-            if (!isFinishing && !isDestroyed) {
-                Log.d(TAG, "onResume: Performing delayed verification")
-                viewModel.verifyHomeAppStatusDelayed()
-            }
-        }, 500) // 500ms delay to let any transient states settle
     }
 
     /**
