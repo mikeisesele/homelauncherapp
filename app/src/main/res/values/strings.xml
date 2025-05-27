@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Home App</string>
+
+    <!-- MainActivity -->
+    <string name="welcome_home">Welcome Home!</string>
+    <string name="home_description">Your new default home screen</string>
+
+    <!-- Onboarding -->
+    <string name="welcome_title">Welcome!</string>
+    <string name="welcome_description">Let\'s set up your new home experience in just a few simple steps.</string>
+
+    <string name="set_default_title">Set as Default</string>
+    <string name="set_default_description">To continue, set the app as your default home</string>
+    <string name="set_as_default">Set as Default Home</string>
+
+    <string name="thank_you_title">All Set!</string>
+    <string name="thank_you_description">Thanks for setting as default home</string>
+
+    <!-- Buttons -->
+    <string name="continue_button">Continue</string>
+    <string name="finish_button">Finish</string>
+
+    <!-- Content Descriptions -->
+    <string name="home_icon">Home Icon</string>
+    <string name="success_icon">Success Icon</string>
+    <string name="avatar">Avatar</string>
+</resources>
