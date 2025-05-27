@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/WelcomeFragment">
+
+    <fragment
+        android:id="@+id/WelcomeFragment"
+        android:name="com.michael.homeapponboarding.presentation.onboarding.fragments.WelcomeFragment"
+        android:label="@string/welcome_home"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SetDefaultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SetDefaultFragment"
+        android:name="com.michael.homeapponboarding.presentation.onboarding.fragments.SetDefaultFragment"
+        android:label="@string/set_as_default"
+        tools:layout="@layout/fragment_set_default">
+        <action
+            android:id="@+id/action_SecondFragment_to_ThankYouFragment"
+            app:destination="@id/ThankYouFragment" />
+    </fragment>
+     <fragment
+        android:id="@+id/ThankYouFragment"
+        android:name="com.michael.homeapponboarding.presentation.onboarding.fragments.ThankYouFragment"
+        android:label="@string/thank_you_title"
+        tools:layout="@layout/fragment_thank_you">
+    </fragment>
+
+</navigation>
