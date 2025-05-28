@@ -10,25 +10,7 @@ data class OnboardingState(
     val shouldFinishActivity: Boolean = false,
     val isOnboardingCompleted: Boolean = false,
     val isSetAsDefaultHome: Boolean = false
-) {
-    /**
-     * Helper function to check if we're in a valid state
-     */
-    fun isValidState(): Boolean {
-        return when {
-            isOnboardingCompleted && !isSetAsDefaultHome -> false // Inconsistent state
-            currentStep == OnboardingStep.ThankYou && !isSetAsDefaultHome -> false // Can't thank if not default
-            else -> true
-        }
-    }
-
-    /**
-     * Helper function to determine if activity should finish
-     */
-    fun shouldFinish(): Boolean {
-        return shouldFinishActivity || (isOnboardingCompleted && isSetAsDefaultHome)
-    }
-}
+)
 
 /**
  * Represents the onboarding steps as per exercise requirements
